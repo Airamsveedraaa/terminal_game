@@ -1,7 +1,7 @@
 #character data
 import random
 name=input("Enter your name, adventurer: ")
-role=int(input("Select your role: \n1) Wizard \n2) Knight \n3) Healer \n"))
+role=int(input("Select your role: \n1) Wizard \n2) Knight \n"))
 list_movements_wiz= ["Fireball","Magic healing","Total Block"] #from this list the player will have 1 randomly
 list_movements_heal=["Healing","Revive","Posioning"] #only can have it doing training
 list_movements_knight=["Stocade","Barricade","Fire Fist"] #same as wizard
@@ -15,7 +15,7 @@ if role==1:
     print("Congratulations, you are now a Wizard",name)
     print("This are your first known movements " + str(movements_wiz), "when you level up, you can choose more movements and know more and more, this is only the beggining!")
     path_wiz = int(input( "Let`s start with your adventure!, First, where do you want to go? \n1) City \n2) Training camp \n3) Forest \n"))
-   #1rst path, MISSING FOREST
+   #1rst path, DONE
     if path_wiz == 1:
         #end of adventure, Resting on the city
         print("The city seems quiet now, let`s rest for a while")
@@ -233,6 +233,8 @@ if role==1:
                     print("CRITICAL HIT!, you defeated the goblin, congratulations!")
                     print("You are tired of the combat, so you search for an inn to rest")
                     print("End of your adventure! for now...")
+elif role==2:
+    print("CODE MISSING")
 else:
     print("Invalid input")
 
