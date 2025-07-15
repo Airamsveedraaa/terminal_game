@@ -234,6 +234,227 @@ if role==1:
                     print("You are tired of the combat, so you search for an inn to rest")
                     print("End of your adventure! for now...")
 elif role==2:
+    #knight adventure, same as wizard but it changes the movements, and the dmg u dealprint("Congratulations, you are now a Wizard",name)
+    print("This are your first known movements " + str(movements_knight), "when you level up, you can choose more movements and know more and more, this is only the beggining!")
+    path_wiz = int(input( "Let`s start with your adventure!, First, where do you want to go? \n1) City \n2) Training camp \n3) Forest \n"))
+   #1rst path, DONE
+    if path_wiz == 1:
+        #end of adventure, Resting on the city
+        print("The city seems quiet now, let`s rest for a while")
+        print("End of your adventure! for now...you are resting on the city while thinking where to go on your next mission")
+    elif path_wiz == 2:
+        #training to improve your habilities
+        train_knight = int(input("Lets train ! what training do you want to do? \n1) Healer training \n2) Wizard training \n3) Knight training \n"))
+        if train_knight == 1:
+            movements_knight = random.sample(list_movements_heal, 1) + movements_knight
+            print("Congratulations! the trainning was succesfull! your movements now are: " + str(movements_knight))
+            path2_knight = int(input("Where do you want to go now? \n1) City \n2) Training camp (You are currently here) \n3) Forest \n"))
+           #2nd path DONE
+            if path2_knight == 1:
+                #end of the adventure, resting in the city
+                print("The city seems quiet now, let`s rest for a while")
+                print("End of your adventure! for now...you are resting on the city while thinking where to go on your next mission")
+            elif path2_knight == 2:
+                train2_knight = int(input("What training do you want to do? \n1) Healer training (Done, cant be repeated) \n2) Wizard training \n3) Knight training \n"))
+                if train2_knight == 1:
+                    #end of the adventure, fell asleep on training camp
+                    print("You already have done this training! Rest for a while while you think what do you want to do...")
+                    print("You fell asleep in the training camp, end of your adventure, for now...")
+                elif train2_knight == 2:
+                    movements_knight=random.sample(list_movements_wiz,1) + movements_knight
+                    print("Congratulations! the trainning was succesfull! your movements now are: " + str(movements_knight))
+                    path3_knight=int(input("Where do you want to go now? \n1) City \n2) Training camp (Currently here) \n3) Forest \n"))
+                   #3rd path, DONE
+                    if path3_knight == 1:
+                        #end of the adventure, resting in the city
+                        print("The city seems quiet now, let`s rest for a while")
+                        print( "End of your adventure! for now...you are resting on the city while thinking where to go on your next mission")
+                    elif path3_knight == 2:
+                        train3_knight = int(input("What training do you want to do? \n1) Healer training (Done, cant be repeated) \n2) Wizard training (Done, cant be repeated) \n3) Kninght trainning \n"))
+                        if train3_knight == 1 or 2:
+                            # end of the adventure, fell asleep on training camp
+                            print("You already have done this training! Rest for a while while you think what do you want to do...")
+                            print("You fell asleep in the training camp, end of your adventure, for now...")
+                        elif train3_knight == 3:
+                            movements_knight=random.sample(list_movements_knight,1) + movements_knight
+                            print("Congratulations! the trainning was succesfull! your movements now are: " + str(movements_knight))
+                            path4_knight = int(input( "Where do you want to go now? \n1) City \n2) Training camp (Currently here, you already have done all your tasks here) \n3) Forest \n"))
+                           #4th path, DONE
+                            if path4_knight == 1:
+                                #end of adventure, resting in the city
+                                print("The city seems quiet now, let`s rest for a while")
+                                print("End of your adventure! for now...")
+                            elif path4_knight == 3:
+                                print("You walk into the forest...but a goblin jumps out of a bush! ")
+                                print("Starting combat.... \n Heal of player: " ,heal, "Heal of the goblin: " ,goblin_hp)
+                                attack1=int(input("What movement do you want to use? " , movements_knight))
+                                if attack1== movements_knight[1]:
+                                    goblin_hp-=30
+                                    print("HIT! -30Hp, goblin hp: " ,goblin_hp)
+                                    print("Watch out! here it comes the goblin attack! ")
+                                    dodge=random.randint(1,2)
+                                    if dodge == 1:
+                                        print("Dodged succesfully!")
+                                        attack2=int(input("What movement do you want to use now? " , movements_knight))
+                                        if attack2 == movements_knight[2]:
+                                            goblin_hp-=70
+                                            #end of adventure for now, fight won succesfully
+                                            print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                                            print("You are tired of the combat, so you search for an inn to rest")
+                                            print("End of your adventure! for now...")
+                                        else:
+                                            heal-=30
+                                            print("You are hit!, your hp is now",heal)
+                                            attack3=int(input("What movement do you want to use? " , movements_knight))
+                                            if attack3 == movements_knight[1]:
+                                                goblin_hp-=30
+                                                print("HIT! -15Hp, goblin hp: ", goblin_hp)
+                                                attack4=int(input("What movement do you want to use? ",movements_knight))
+                                                if attack4==movements_wiz[2]:
+                                                    goblin_hp-=85
+                                                    # end of adventure for now, fight won succesfully
+                                                    print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                                                    print("You are tired of the combat, so you search for an inn to rest")
+                                                    print("End of your adventure! for now...")
+                                    else:
+                                        heal-=30
+                                        print("You are hit!, your hp is now",heal)
+                                        attack5=int(input("What movement do you want to use? " , movements_knight))
+                                        if attack5==movements_knight[2]:
+                                            goblin_hp -= 70
+                                            #end of adventure for now, fight won succesfully
+                                            print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                                            print("You are tired of the combat, so you search for an inn to rest")
+                                            print("End of your adventure! for now...")
+                            else:
+                                #end of adventure, trainning camp completed
+                                print("You already completed all of your tasks here! take a rest, adventurer")
+                    else:
+                        print("You walk into the forest...but a goblin jumps out of a bush! ")
+                        print("Starting combat.... \n Heal of player: ", heal, "Heal of the goblin: ", goblin_hp)
+                        attack1 = int(input("What movement do you want to use? ", movements_knight))
+                        if attack1 == movements_knight[1]:
+                            goblin_hp -= 30
+                            print("HIT! -15Hp, goblin hp: ", goblin_hp)
+                            print("Watch out! here it comes the goblin attack! ")
+                            dodge = random.randint(1, 2)
+                            if dodge == 1:
+                                print("Dodged succesfully!")
+                                attack2 = int(input("What movement do you want to use now? ", movements_knight))
+                                if attack2 == movements_knight[2]:
+                                    goblin_hp -= 70
+                                    # end of adventure for now, fight won succesfully
+                                    print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                                    print("You are tired of the combat, so you search for an inn to rest")
+                                    print("End of your adventure! for now...")
+                                else:
+                                    heal -= 30
+                                    print("You are hit!, your hp is now", heal)
+                                    attack3 = int(input("What movement do you want to use? ", movements_knight))
+                                    if attack3 == movements_wiz[1]:
+                                        goblin_hp -= 30
+                                        print("HIT! -15Hp, goblin hp: ", goblin_hp)
+                                        attack4 = int(input("What movement do you want to use? ", movements_knight))
+                                        if attack4 == movements_knight[2]:
+                                            goblin_hp -= 70
+                                            # end of adventure for now, fight won succesfully
+                                            print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                                            print("You are tired of the combat, so you search for an inn to rest")
+                                            print("End of your adventure! for now...")
+                            else:
+                                heal -= 30
+                                print("You are hit!, your hp is now", heal)
+                                attack5 = int(input("What movement do you want to use? ", movements_knight))
+                                if attack5 == movements_knight[2]:
+                                    goblin_hp -= 70
+                                    # end of adventure for now, fight won succesfully
+                                    print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                                    print("You are tired of the combat, so you search for an inn to rest")
+                                    print("End of your adventure! for now...")
+            else:
+                print("You walk into the forest...but a goblin jumps out of a bush! ")
+                print("Starting combat.... \n Heal of player: ", heal, "Heal of the goblin: ", goblin_hp)
+                attack1 = int(input("What movement do you want to use? ", movements_knight))
+                if attack1 == movements_knight[1]:
+                    goblin_hp -= 30
+                    print("HIT! -15Hp, goblin hp: ", goblin_hp)
+                    print("Watch out! here it comes the goblin attack! ")
+                    dodge = random.randint(1, 2)
+                    if dodge == 1:
+                        print("Dodged succesfully!")
+                        attack2 = int(input("What movement do you want to use now? ", movements_knight))
+                        if attack2 == movements_knight[2]:
+                            goblin_hp -= 70
+                            # end of adventure for now, fight won succesfully
+                            print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                            print("You are tired of the combat, so you search for an inn to rest")
+                            print("End of your adventure! for now...")
+                        else:
+                            heal -= 30
+                            print("You are hit!, your hp is now", heal)
+                            attack3 = int(input("What movement do you want to use? ", movements_knight))
+                            if attack3 == movements_knight[1]:
+                                goblin_hp -= 15
+                                print("HIT! -15Hp, goblin hp: ", goblin_hp)
+                                attack4 = int(input("What movement do you want to use? ", movements_knight))
+                                if attack4 == movements_knight[2]:
+                                    goblin_hp -= 70
+                                    # end of adventure for now, fight won succesfully
+                                    print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                                    print("You are tired of the combat, so you search for an inn to rest")
+                                    print("End of your adventure! for now...")
+                    else:
+                        heal -= 30
+                        print("You are hit!, your hp is now", heal)
+                        attack5 = int(input("What movement do you want to use? ", movements_knight))
+                        if attack5 == movements_knight[2]:
+                            goblin_hp -= 70
+                            # end of adventure for now, fight won succesfully
+                            print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                            print("You are tired of the combat, so you search for an inn to rest")
+                            print("End of your adventure! for now...")
+    else:
+        print("You walk into the forest...but a goblin jumps out of a bush! ")
+        print("Starting combat.... \n Heal of player: ", heal, "Heal of the goblin: ", goblin_hp)
+        attack1 = int(input("What movement do you want to use? ", movements_knight))
+        if attack1 == movements_knight[1]:
+            goblin_hp -= 30
+            print("HIT! -15Hp, goblin hp: ", goblin_hp)
+            print("Watch out! here it comes the goblin attack! ")
+            dodge = random.randint(1, 2)
+            if dodge == 1:
+                print("Dodged succesfully!")
+                attack2 = int(input("What movement do you want to use now? ", movements_knight))
+                if attack2 == movements_knight[2]:
+                    goblin_hp -= 70
+                    # end of adventure for now, fight won succesfully
+                    print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                    print("You are tired of the combat, so you search for an inn to rest")
+                    print("End of your adventure! for now...")
+                else:
+                    heal -= 30
+                    print("You are hit!, your hp is now", heal)
+                    attack3 = int(input("What movement do you want to use? ", movements_knight))
+                    if attack3 == movements_knight[1]:
+                        goblin_hp -= 30
+                        print("HIT! -15Hp, goblin hp: ", goblin_hp)
+                        attack4 = int(input("What movement do you want to use? ", movements_knight))
+                        if attack4 == movements_knight[2]:
+                            goblin_hp -= 70
+                            # end of adventure for now, fight won succesfully
+                            print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                            print("You are tired of the combat, so you search for an inn to rest")
+                            print("End of your adventure! for now...")
+            else:
+                heal -= 30
+                print("You are hit!, your hp is now", heal)
+                attack5 = int(input("What movement do you want to use? ", movements_knight))
+                if attack5 == movements_knight[2]:
+                    goblin_hp -= 70
+                    # end of adventure for now, fight won succesfully
+                    print("CRITICAL HIT!, you defeated the goblin, congratulations!")
+                    print("You are tired of the combat, so you search for an inn to rest")
+                    print("End of your adventure! for now...")
     print("CODE MISSING")
 else:
     print("Invalid input")
